@@ -42,11 +42,14 @@ function Pokemon() {
                 <div className="button prev" name="prev" onClick={(e) => handleClick(e)}>prev</div>
                 <div className="button next" name="next" onClick={(e) => handleClick(e)}>next</div>
             </div>
-           {
+            <div className="container">
+            {
                pokeData
                 ? pokeData.map((item, index) => <Card name={item.name} url={item.url} key={index} />)
                 : 'LOADING...'
            }
+            </div>
+           
            <div>
                 <div className="button prev" name="prev" onClick={(e) => handleClick(e)}>prev</div>
                 <div className="button next" name="next" onClick={(e) => handleClick(e)}>next</div>

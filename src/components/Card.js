@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import './Card.css'
 
 function Card(props) {
 
@@ -33,10 +34,15 @@ function Card(props) {
     return (
         <React.Fragment>
             <div className="card">
-                <h2>{props.name}</h2>
-                {pokeImg
-                    ? <img src={pokeImg.front_default} alt={props.name}/>
-                    :<p>LOADING...</p>}
+                <header className="card-header">
+                    <h2 className="nombre">{props.name.charAt(0).toUpperCase() + props.name.slice(1)}</h2>
+                </header>
+                <div className="card-img">
+                    {pokeImg
+                        ? <img src={pokeImg.front_default} alt={props.name}/>
+                        :<p>LOADING...</p>}
+                </div>
+                
             </div>
             
         </React.Fragment>
