@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react'
 
 function Card(props) {
 
-    const [pokeStats, setPokeStats] = useState({})
     const [pokeImg, setPokeImg] = useState('')
 
     useEffect(() => {
@@ -12,22 +11,15 @@ function Card(props) {
             fetch(props.url,{signal : controller.signal})
                 .then(res => res.json())
                 .then(data=>{
-                    setPokeStats(data)
+                    setPokeImg(data.sprites)
                 })
                 .catch(err => err.name === 'AbortError' ? null : console.log(err))
         }
 
-        const setImg = async ()=> {
-            try{
-             await setPokeImg(pokeStats.sprites)
-             
-            } catch(error){
-                console.log(error.name)
-            }
-         }
+        
 
         fetchPokeData();
-        setImg()
+        
         return () => {
             controller.abort()
         }
