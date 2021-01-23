@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/Pokemon.css"],"names":[],"mappings":"AAAA,QACI,WAAY,CACZ,sBACJ","file":"main.60e91865.chunk.css","sourcesContent":[".button{\r\n    margin: 20px;\r\n    background-color: brown;\r\n}"]}
