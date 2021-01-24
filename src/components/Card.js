@@ -42,6 +42,13 @@ function Card(props) {
                         ? <img src={pokeImg.front_default} alt={props.name}/>
                         :<p>LOADING...</p>}
                 </div>
+                <div className="card-stats"> 
+                    <ul className="stat-list">
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.</li>
+                    </ul>
+                </div>
                 
             </div>
             
