@@ -29,7 +29,7 @@ function Pokemon() {
     },[currentPage])
 
     const handleClick = (e) => {
-        e.target.className === "button prev"
+        e.target.className === "button prev" || e.target.className === "left"
             ? prevPage != null ? setCurrentPage(prevPage) : setCurrentPage(currentPage)
             : nextPage != null ? setCurrentPage(nextPage) : setCurrentPage(currentPage)
     }
@@ -40,10 +40,10 @@ function Pokemon() {
         <div>
             
             <div className="pagination">
-                <div className="left"></div>
+                <div className="left" onClick={(e) => handleClick(e)}></div>
                 <div className="button prev" name="prev" onClick={(e) => handleClick(e)}>prev</div>
                 <div className="button next" name="next" onClick={(e) => handleClick(e)}>next</div>
-                <div className="right"></div>
+                <div className="right" onClick={(e) => handleClick(e)}></div>
             </div>
             <div className="container">
             {
@@ -54,10 +54,10 @@ function Pokemon() {
             </div>
            
            <div className="pagination">
-               <div className="left"></div>
+               <div className="left" onClick={(e) => handleClick(e)}></div>
                 <div className="button prev" name="prev" onClick={(e) => handleClick(e)}>prev</div>
                 <div className="button next" name="next" onClick={(e) => handleClick(e)}>next</div>
-                <div className="right"></div>
+                <div className="right" onClick={(e) => handleClick(e)}></div>
             </div>
         </div>
     )
