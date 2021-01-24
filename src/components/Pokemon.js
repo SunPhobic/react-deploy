@@ -41,8 +41,8 @@ function Pokemon() {
             
             <div className="pagination">
                 <div className="left" onClick={(e) => handleClick(e)}></div>
-                <div className="button prev" name="prev" onClick={(e) => handleClick(e)}>prev</div>
-                <div className="button next" name="next" onClick={(e) => handleClick(e)}>next</div>
+                <div className="button prev" name="prev" onClick={(e) => handleClick(e)}></div>
+                <div className="button next" name="next" onClick={(e) => handleClick(e)}></div>
                 <div className="right" onClick={(e) => handleClick(e)}></div>
             </div>
             <div className="container">
@@ -55,8 +55,8 @@ function Pokemon() {
            
            <div className="pagination">
                <div className="left" onClick={(e) => handleClick(e)}></div>
-                <div className="button prev" name="prev" onClick={(e) => handleClick(e)}>prev</div>
-                <div className="button next" name="next" onClick={(e) => handleClick(e)}>next</div>
+                <div className="button prev" name="prev" onClick={(e) => handleClick(e)}></div>
+                <div className="button next" name="next" onClick={(e) => handleClick(e)}></div>
                 <div className="right" onClick={(e) => handleClick(e)}></div>
             </div>
         </div>
