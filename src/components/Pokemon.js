@@ -69,14 +69,9 @@ function Pokemon() {
    
     return (
         !loading
-        ?<div>
+        ?<div className="everything">
             
-            <div className="pagination">
-                <div className="left" onClick={(e) => handleClick(e)}></div>
-                <div className="button prev" name="prev" onClick={(e) => handleClick(e)}></div>
-                <div className="button next" name="next" onClick={(e) => handleClick(e)}></div>
-                <div className="right" onClick={(e) => handleClick(e)}></div>
-            </div>
+           
             <div className="container">
             {
                
@@ -87,10 +82,13 @@ function Pokemon() {
             </div>
            
            <div className="pagination">
+               <div className="arrows">
                <div className="left" onClick={(e) => handleClick(e)}></div>
                 <div className="button prev" name="prev" onClick={(e) => handleClick(e)}></div>
                 <div className="button next" name="next" onClick={(e) => handleClick(e)}></div>
                 <div className="right" onClick={(e) => handleClick(e)}></div>
+               </div>
+               
             </div>
         </div>
         : <div className="poke-loading"><div className="lds-circle"><div></div></div></div>
