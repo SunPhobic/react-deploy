@@ -35,7 +35,7 @@ function Card(props) {
         <React.Fragment>
             <div className="card">
                 <header className="card-header">
-                    <h2 className="nombre">{props.name.charAt(0).toUpperCase() + props.name.slice(1)}</h2>
+                    <h2 className="nombre">{pokeImg ? props.name.charAt(0).toUpperCase() + props.name.slice(1) : 'LOADING...'}</h2>
                 </header>
                 <div className="card-img">
                     {pokeImg
