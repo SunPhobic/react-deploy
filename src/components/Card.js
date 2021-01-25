@@ -12,14 +12,16 @@ function Card(props) {
                 </header>
                 <div className="card-img">
                     {
-                        <img src={props.img.front_default} alt={props.data.name}/>
+                        <img src={props.data.sprites.front_default} alt={props.data.name}/>
                         }
                 </div>
                 <div className="card-stats"> 
                     <ul className="stat-list">
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem, ipsum dolor.</li>
+                        <li>Type: {
+                            props.data.types[0].type.name.charAt(0).toUpperCase() + props.data.types[0].type.name.slice(1)
+                            }</li>
+                        <li>Height: {props.data.height/10}m</li>
+                        <li>weight: {props.data.weight/10}Kg</li>
                     </ul>
                 </div>
                 

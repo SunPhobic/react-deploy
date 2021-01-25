@@ -56,7 +56,8 @@ function Pokemon() {
     
    
     return (
-        <div>
+        !loading
+        ?<div>
             
             <div className="pagination">
                 <div className="left" onClick={(e) => handleClick(e)}></div>
@@ -66,9 +67,9 @@ function Pokemon() {
             </div>
             <div className="container">
             {
-               !loading
-                ? pokeData.map((item, index) => <Card data={item} img={item.sprites} key={index} />)
-                : <h1>LOADING...</h1>
+               
+                 pokeData.map((item, index) => <Card data={item} key={index} />)
+                
                 
            }
             </div>
@@ -80,6 +81,7 @@ function Pokemon() {
                 <div className="right" onClick={(e) => handleClick(e)}></div>
             </div>
         </div>
+        : <div className="poke-loading"><div className="lds-circle"><div></div></div></div>
     )
 }
 
