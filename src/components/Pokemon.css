@@ -61,9 +61,10 @@
 }
 .poke-loading{
   display: flex;
+  position: sticky;
   justify-content: center;
   align-items: center;
-  padding: 50%;
+  padding: 17.5%;
 }
 .lds-circle {
   display: inline-block;
