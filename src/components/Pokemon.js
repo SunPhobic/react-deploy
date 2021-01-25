@@ -45,11 +45,23 @@ function Pokemon() {
 
     const handleClick = (e) => {
         if(e.target.className === "button prev" || e.target.className === "left"){
-            setLoading(true)
-            prevPage != null ? setCurrentPage(prevPage) : setCurrentPage(currentPage)
+            if(!prevPage){
+                return
+            }else{
+                setLoading(true)
+                setCurrentPage(prevPage)
+            }
+            
+            
         }else{
-            setLoading(true)
-            nextPage != null ? setCurrentPage(nextPage) : setCurrentPage(currentPage)
+            if(nextPage === 'https://pokeapi.co/api/v2/pokemon/?offset=980&limit=20'){
+                return
+            }else{
+                setLoading(true)
+                setCurrentPage(nextPage)
+            }
+             
+             
         }        
     }
 

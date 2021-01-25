@@ -3,6 +3,7 @@ import './Card.css'
 
 function Card(props) {
 
+    const IMG = props.data.sprites.front_default
     
     return (
         <React.Fragment>
@@ -10,11 +11,19 @@ function Card(props) {
                 <header className="card-header">
                     <h2 className="nombre">{props.data.name.charAt(0).toUpperCase() + props.data.name.slice(1) }</h2>
                 </header>
-                <div className="card-img">
-                    {
-                        <img src={props.data.sprites.front_default} alt={props.data.name}/>
-                        }
-                </div>
+                
+                    
+
+                    <div className="card-img">
+                        {  IMG 
+                            ?<img src={IMG} alt={props.data.name}/>
+                            :'...loading'
+
+                            }
+                    </div>
+                    
+                
+                
                 <div className="card-stats"> 
                     <ul className="stat-list">
                         <li>Type: {
