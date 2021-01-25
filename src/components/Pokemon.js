@@ -10,23 +10,39 @@ function Pokemon() {
     const [currentPage, setCurrentPage] = useState('https://pokeapi.co/api/v2/pokemon/')
     const [prevPage, setPrevPage] = useState('')
     const [nextPage, setNextPage] = useState('')
-    
+    const [pokeStats, setPokeStats] = useState([])
+    const [loading, setLoading] = useState(true)
+
     useEffect(()=>{
-        
-        const fetchData = () => {
-            fetch(currentPage)
-                .then(res=> res.json())
-                .then(data=>{
-                    setPokeData(data.results)
-                    setPrevPage(data.previous)
-                    setNextPage(data.next)
-                })
-                .catch(err => console.log(err))
+        const fetchNames = async ()=>{
+            const response = await fetchData(currentPage)
+            
+            setPrevPage(response.previous)
+            setNextPage(response.next)
+            await pokemonData(response.results)
+            setLoading(false)
         }
-        
-        fetchData();
+        fetchNames();
         // eslint-disable-next-line
     },[currentPage])
+    
+
+    const fetchData = (url) =>{
+        return fetch(url).then(res=> res.json())
+    }
+
+    const getPokemon = (url) => {
+        return fetch(url).then(res => res.json())
+    }
+
+    const pokemonData = async (data) => {
+        let pokemon = await Promise.all(data.map(async pokemon => {
+            let pokeRecord = await getPokemon(pokemon.url)
+            return pokeRecord
+        }))
+
+        setPokeData(pokemon)
+    }
 
     const handleClick = (e) => {
         e.target.className === "button prev" || e.target.className === "left"
@@ -35,7 +51,7 @@ function Pokemon() {
     }
 
     
-    
+   
     return (
         <div>
             
@@ -47,8 +63,8 @@ function Pokemon() {
             </div>
             <div className="container">
             {
-               pokeData
-                ? pokeData.map((item, index) => <Card name={item.name} url={item.url} key={index} />)
+               !loading
+                ? pokeData.map((item, index) => <Card data={item} key={index} />)
                 : 'LOADING...'
            }
             </div>
