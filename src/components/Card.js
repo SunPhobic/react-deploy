@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import './Card.css'
 
 function Card(props) {
@@ -12,7 +12,7 @@ function Card(props) {
                 </header>
                 <div className="card-img">
                     {
-                        <img src={props.data.sprites.front_default} alt={props.data.name}/>
+                        <img src={props.img.front_default} alt={props.data.name}/>
                         }
                 </div>
                 <div className="card-stats"> 

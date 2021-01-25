@@ -10,7 +10,6 @@ function Pokemon() {
     const [currentPage, setCurrentPage] = useState('https://pokeapi.co/api/v2/pokemon/')
     const [prevPage, setPrevPage] = useState('')
     const [nextPage, setNextPage] = useState('')
-    const [pokeStats, setPokeStats] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
@@ -45,9 +44,13 @@ function Pokemon() {
     }
 
     const handleClick = (e) => {
-        e.target.className === "button prev" || e.target.className === "left"
-            ? prevPage != null ? setCurrentPage(prevPage) : setCurrentPage(currentPage)
-            : nextPage != null ? setCurrentPage(nextPage) : setCurrentPage(currentPage)
+        if(e.target.className === "button prev" || e.target.className === "left"){
+            setLoading(true)
+            prevPage != null ? setCurrentPage(prevPage) : setCurrentPage(currentPage)
+        }else{
+            setLoading(true)
+            nextPage != null ? setCurrentPage(nextPage) : setCurrentPage(currentPage)
+        }        
     }
 
     
@@ -64,8 +67,9 @@ function Pokemon() {
             <div className="container">
             {
                !loading
-                ? pokeData.map((item, index) => <Card data={item} key={index} />)
-                : 'LOADING...'
+                ? pokeData.map((item, index) => <Card data={item} img={item.sprites} key={index} />)
+                : <h1>LOADING...</h1>
+                
            }
             </div>
            
